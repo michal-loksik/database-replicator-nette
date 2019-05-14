@@ -1,0 +1,54 @@
+{
+  "name": "pmgdev/database-replicator-nette",
+  "type": "library",
+  "description": "DatabaseReplicator extension for nette.",
+  "homepage": "https://github.com/pmgdev/database-replicator-nette",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Svatopluk Hastík",
+      "email": "svatopluk.hastik@csfd.cz",
+      "role": "Developer"
+    },
+    {
+      "name": "Dominik Klapuch",
+      "email": "dominik.klapuch@csfd.cz",
+      "role": "Developer"
+    },
+    {
+      "name": "Milan Matějček",
+      "email": "milan.matejcek@csfd.cz",
+      "role": "Developer"
+    },
+    {
+      "name": "Jakub Trmota",
+      "email": "jakub.trmota@csfd.cz",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "nette/di": "^2.4 || ^3.0",
+    "pmgdev/database-replicator": "0.1.*"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^0.11.1",
+    "nette/tester": "^2.2",
+    "tracy/tracy": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "PmgDev\\DatabaseReplicator\\": [
+        "src/"
+      ]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PmgDev\\DatabaseReplicator\\": [
+        "tests/src/",
+        "tests/libs/"
+      ]
+    }
+  }
+}
