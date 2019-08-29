@@ -12,7 +12,7 @@ class DummyCommand implements Command
 	}
 
 
-	public function copy(string $sourceDb, string $cloneDb, Config $config): void
+	public function copy(Config $config, string $cloneDb): void
 	{
 	}
 
