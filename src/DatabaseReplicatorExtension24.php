@@ -184,7 +184,7 @@ abstract class DatabaseReplicatorExtension24 extends DI\CompilerExtension
 	}
 
 
-	private function buildDatabaseOperation(array $connectionsName)
+	private function buildDatabaseOperation(array $connectionsName): DI\ServiceDefinition
 	{
 		return $this->getContainerBuilder()->addDefinition($this->prefix('database.operation'))
 			->setFactory(DatabaseOperation::class)
