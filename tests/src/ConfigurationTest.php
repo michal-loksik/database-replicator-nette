@@ -32,9 +32,6 @@ test(function (Container $container) {
 	], get_object_vars($config));
 	Assert::type(DatabaseReplicator\Config::class, $config);
 
-	$connectionFactory = $container->getService('databaseReplicator.test_db.connectionFactory');
-	Assert::type(DatabaseReplicator\ConnectionFactory::class, $connectionFactory);
-
 	$database = $container->getService('databaseReplicator.test_db.database');
 	Assert::type(DatabaseReplicator\Database::class, $database);
 

@@ -54,13 +54,6 @@ abstract class DatabaseReplicatorExtension24 extends DI\CompilerExtension
 	}
 
 
-	abstract protected function buildDatabaseFactory(
-		DI\ServiceDefinition $connectionFactory,
-		string $replicatorService,
-		string $name
-	): DI\ServiceDefinition;
-
-
 	protected function getDefaults(): array
 	{
 		return self::DEFAULTS;
@@ -94,14 +87,14 @@ abstract class DatabaseReplicatorExtension24 extends DI\CompilerExtension
 
 	private function buildDatabase(string $name, bool $autowire): void
 	{
-		$builder = $this->getContainerBuilder();
-		$connectionFactory = $builder->addDefinition($this->prefix($name . '.connectionFactory'))
-			->setAutowired(FALSE);
-		$builder->addDefinition($this->prefix($name . '.database'))
-			->setFactory(Database::class)
-			->setAutowired($autowire)
-			->setArguments([$this->buildDatabaseFactory($connectionFactory, $this->replicatorName($name, TRUE), $name)]);
+		$database = $this->getContainerBuilder()
+			->addDefinition($this->prefix($name . '.database'))
+			->setAutowired($autowire);
+		$this->buildDatabaseConnection($database, $name, $this->replicatorName($name, TRUE));
 	}
+
+
+	abstract protected function buildDatabaseConnection(DI\ServiceDefinition $service, string $name, string $replicatorService): void;
 
 
 	private function buildDatabaseReplicator(

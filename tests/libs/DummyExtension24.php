@@ -7,14 +7,14 @@ use Nette\DI;
 class DummyExtension24 extends DatabaseReplicatorExtension24
 {
 
-	protected function buildDatabaseFactory(
-		DI\ServiceDefinition $connectionFactory,
-		string $replicatorService,
-		string $name
-	): DI\ServiceDefinition
+	protected function buildDatabaseConnection(
+		DI\ServiceDefinition $database,
+		string $name,
+		string $replicatorService
+	): void
 	{
-		return $connectionFactory
-			->setFactory(DummyConnectionFactory::class)
+		$database
+			->setFactory(DummyDatabase::class)
 			->setArguments([$replicatorService]);
 	}
 

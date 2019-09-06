@@ -25,14 +25,14 @@ use PmgDev\DatabaseReplicator\DatabaseReplicatorExtension24
 class MyDatabaseReplicatorExtension extends DatabaseReplicatorExtension24
 {
 
-	protected function buildDatabaseFactory(
-		DI\ServiceDefinition $connectionFactory,
-		string $replicatorService,
-		string $name
-	): DI\ServiceDefinition
+	protected function buildDatabaseConnection(
+		DI\ServiceDefinition $database,
+		string $name,
+		string $replicatorService
+	): void
 	{
-		return $connectionFactory
-			->setFactory(MyConnectionFactory::class) // MyConnectionFactory is in DatabaseReplicator README above
+		$database
+			->setFactory(MyConnectionDatabase::class)
 			->setArguments([$replicatorService]);
 	}
 
