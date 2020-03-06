@@ -3,6 +3,7 @@
 namespace PmgDev\DatabaseReplicator;
 
 use Nette\DI;
+use Nette\DI\Definitions\ServiceDefinition;
 use PmgDev\DatabaseReplicator\Source;
 
 abstract class DatabaseReplicatorExtension24 extends DI\CompilerExtension
@@ -94,7 +95,7 @@ abstract class DatabaseReplicatorExtension24 extends DI\CompilerExtension
 	}
 
 
-	abstract protected function buildDatabaseConnection(DI\ServiceDefinition $service, string $name, string $replicatorService): void;
+	abstract protected function buildDatabaseConnection(ServiceDefinition $service, string $name, string $replicatorService): void;
 
 
 	private function buildDatabaseReplicator(

@@ -4,3 +4,4 @@ composer.lock
 /tests/**/output/
 /coverage.html
 /tests/temp/
+.idea

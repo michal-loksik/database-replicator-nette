@@ -1,5 +1,5 @@
 {
-  "name": "pmgdev/database-replicator-nette",
+  "name": "michal-loksik/database-replicator-nette",
   "type": "library",
   "description": "DatabaseReplicator extension for nette.",
   "homepage": "https://github.com/pmgdev/database-replicator-nette",
